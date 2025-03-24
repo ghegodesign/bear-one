@@ -7,11 +7,11 @@
   <link rel="stylesheet" href="styles.css"> <!-- Collega il file CSS -->
 </head>
 <body>
-  <model-viewer src="assets/obj2red.glb" poster="assets/poster_red.webp" shadow-intensity="1" ar camera-controls touch-action="pan-y" alt="A 3D model of a red object">
+  <model-viewer id="model-viewer" src="assets/obj2red.glb" poster="assets/poster_red.webp" shadow-intensity="1" ar camera-controls touch-action="pan-y" alt="A 3D model of a red object">
     <button slot="ar-button" id="ar-button">View in your space</button>
   
     <div id="ar-prompt">
-      <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+      <img src="assets/hand.png">
     </div>
   
     <button id="ar-failure">AR is not tracking!</button>
