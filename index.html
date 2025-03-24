@@ -2,25 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-  <title>beAR ONE</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <link rel="stylesheet" href="main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Switcher</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Collega il file CSS -->
 </head>
 <body>
-
-  <!-- Pulsante per il cambio colore fuori dal model-viewer -->
-  <button id="color-toggle" class="color-toggle">Change Color</button>
-
-  <!-- Il modello AR -->
-  <model-viewer src="assets/obj2red.glb" ar ar-modes="webxr scene-viewer" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="1" autoplay camera-orbit="4.123deg 85.82deg 19.86m" field-of-view="30deg" ios-src="PortaleAR.usdz" id="modelViewer">
-    <!-- Il bottone per avviare l'AR rimane dentro il model-viewer -->
+  <model-viewer src="assets/obj2red.glb" poster="assets/poster_red.webp" shadow-intensity="1" ar camera-controls touch-action="pan-y" alt="A 3D model of a red object">
     <button slot="ar-button" id="ar-button">View in your space</button>
+  
     <div id="ar-prompt">
       <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
     </div>
+  
+    <button id="ar-failure">AR is not tracking!</button>
+  
+    <div class="slider">
+      <div class="slides">
+        <button class="slide selected" onclick="switchModel(this, 'obj2red')" style="background-image: url('assets/poster_red.webp');"></button>
+        <button class="slide" onclick="switchModel(this, 'obj2blu')" style="background-image: url('assets/poster_blu.webp');"></button>
+      </div>
+    </div>
   </model-viewer>
 
-  <script src="color.js"></script>
+  <script type="module" src="color.js"></script> <!-- Collega il file JS -->
 </body>
 </html>
